@@ -4,7 +4,7 @@ class AjoutAideManager{
     public static function creer($e){
              
      
-        $sql = "INSERT INTO apport_aide VALUES ('', ?, ?, ?)";
+        $sql = "INSERT INTO apport_aide VALUES ('', ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         $res = DB::get_instance()->prepare($sql);
         $res -> execute(array(
 								$e->titre_apport,   

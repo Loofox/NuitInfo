@@ -3,10 +3,10 @@
 class AdminManager{
 	
 
-		public static function chercherParLogin($login){
-			$sql="SELECT * from admin WHERE login=?";
+		public static function chercherParLogin($admin){
+			$sql="SELECT * from admin WHERE admin=?";
 			$res=DB::get_instance()->prepare($sql);
-			$res->execute(array($login));
+			$res->execute(array($admin));
 			//gérer les erreurs éventuelles
 			if($res->rowCount()==0){
 				return false;
