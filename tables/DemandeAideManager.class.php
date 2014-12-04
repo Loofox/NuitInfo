@@ -3,7 +3,7 @@
 class DemandeAideManager{
     public static function creer($e){
 
-        $sql = "INSERT INTO etudiant VALUES ('', ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO demande_daide VALUES ('', ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         $res = DB::get_instance()->prepare($sql);
         $res -> execute(array(
 								$e->titre_aide,   
@@ -23,7 +23,7 @@ class DemandeAideManager{
     }
 	
 	public static function chercherParTitre($titre){
-			$sql="SELECT * from demande_daide WHERE titre=?";
+			$sql="SELECT * from demande_daide WHERE titre_aide=?";
 			$res=DB::get_instance()->prepare($sql);
 			$res->execute(array($titre));
 			//gérer les erreurs éventuelles
