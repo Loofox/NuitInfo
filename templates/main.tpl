@@ -24,7 +24,6 @@
 
 		{if $messages}
 			<div class="bs-callout bs-callout-primary">
-				<h4>Zone de messages transmis par <code>Site::ajouter_message():</code></h4>
 				{$messages}
 			</div>
 		{/if}
