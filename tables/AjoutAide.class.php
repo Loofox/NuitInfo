@@ -1,8 +1,6 @@
 <?PHP
  
 class AjoutAide{
-         
-        //public $id_apport;
 		public $titre_apport;
         public $contenu_apport;
         public $nom_personne;
@@ -13,7 +11,7 @@ class AjoutAide{
         public $presentation;
 		public $id_type_apport;
          
-			public function __construct(//$id_apport=NULL,
+			public function __construct(
 										$titre_apport=NULL,			
 										$contenu_apport=NULL,
 										$nom_personne=NULL,
@@ -24,7 +22,6 @@ class AjoutAide{
 										$presentation=NULL,
 										$id_type_apport=NULL)
 			{
-            //$this->id_apport	 	    = $id_apport;
 			$this->titre_apport    	    = $titre_apport;
             $this->contenu_apport  	    = $contenu_apport;
             $this->nom_personne		   	= $nom_personne;

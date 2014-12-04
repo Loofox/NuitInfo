@@ -2,7 +2,6 @@
  
 class DemandeDaide{
          
-        //public $id_demande_daide;
 		public $titre_aide;
         public $contenu_aide;
         public $nom_demandeur;
@@ -13,7 +12,7 @@ class DemandeDaide{
         public $presentation;
 		public $id_type_aide;
          
-			public function __construct(//$id_demande_daide=NULL,
+			public function __construct(
 										$titre_aide=NULL,			
 										$contenu_aide=NULL,
 										$nom_demandeur=NULL,
@@ -24,7 +23,6 @@ class DemandeDaide{
 										$presentation=NULL,
 										$id_type_aide=NULL)
 			{
-            //$this->id_demande_daide        = $id_demande_daide;
 			$this->titre_aide      			 = $titre_aide;
             $this->contenu_aide   			 = $contenu_aide;
             $this->nom_demandeur   			 = $nom_demandeur;
