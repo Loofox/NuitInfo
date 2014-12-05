@@ -3,7 +3,7 @@
 class DemandeAideManager{
     public static function creer($e){
 
-        $sql = "INSERT INTO demande_daide VALUES ('', ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO demande_daide VALUES ('', ?, ?, ?, ?, ?, ?, ?, ?)";
         $res = DB::get_instance()->prepare($sql);
         $res -> execute(array(
 								$e->titre_aide,   
@@ -13,7 +13,6 @@ class DemandeAideManager{
 								$e->num_fixe,
 								$e->num_mobile,
 								$e->email,		
-								$e->presentation,
 								$e->id_type_aide
 								));
 		
