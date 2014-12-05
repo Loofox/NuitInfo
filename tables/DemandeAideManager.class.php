@@ -15,7 +15,7 @@ class DemandeAideManager{
 								$e->email,		
 								$e->id_type_aide
 								));
-		
+
         $e->id=DB::get_instance()->lastInsertId();
         return $e;
              

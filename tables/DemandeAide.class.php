@@ -1,6 +1,6 @@
 <?PHP
  
-class DemandeDaide{
+class DemandeDAide{
          
 		public $titre_aide;
         public $contenu_aide;
@@ -12,14 +12,14 @@ class DemandeDaide{
 		public $id_type_aide;
          
 			public function __construct(
-										$titre_aide=NULL,			
-										$contenu_aide=NULL,
-										$nom_demandeur=NULL,
-										$prenom_demandeur=NULL,
-										$num_fixe=NULL,
-										$num_mobile=NULL,
-										$email=NULL,
-										$id_type_apport=NULL)
+										$titre_aide,			
+										$contenu_aide,
+										$nom_demandeur,
+										$prenom_demandeur,
+										$num_fixe,
+										$num_mobile,
+										$email,
+										$id_type_aide)
 			{
 			$this->titre_aide    	    = $titre_aide;
             $this->contenu_aide  	    = $contenu_aide;
@@ -28,7 +28,7 @@ class DemandeDaide{
             $this->num_fixe    			= $num_fixe;
             $this->num_mobile   		= $num_mobile;
             $this->email    			= $email;
-            $this->id_type_apport	 	= $id_type_apport;
+            $this->id_type_aide	 	= $id_type_aide;
 
 			}
 }

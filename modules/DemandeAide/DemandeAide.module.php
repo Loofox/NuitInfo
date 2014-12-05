@@ -112,7 +112,7 @@ class DemandeAide extends Module{
 		else{
 
 			//création d'une instance de ApportAide
-			$m=new DemandeAide($_POST["titre"],
+			$m=new DemandeDAide($_POST["titre"],
 						$_POST["contenu"],
 						$_POST["nom"],
 						$_POST["prenom"],
