@@ -1,30 +1,115 @@
+{literal}
 <script>
-$(function(){
-{literal}	
-$("a[href='?module=Redirect']").click(function(){
-$('h2').prepend("<p id='load' style=';height:40pt;border:3px gray solid;border-radius:10px;text-align:center'>Patientez quelques secondes</p>");
-	})	
-{/literal}	
-})
+//demande confirmation sur click d'un bouton supprimer
+$(function() {
+	//sur click d'un bouton de suppression
+	$('a.glyphicon-remove').click(function(ev){
+		//récupérer le href du lien
+		//et l'utiliser pour le bouton de confirmation
+		$('#go').attr("href",$(this).attr('href'))	
+
+		//afficher la boite de dialogue
+		$('#myModal').modal();
+	
+		//supprimer le comportement par défaut du lien d'origine
+		ev.preventDefault();				
+	})
+
+
+//efface les données de la boite de dialogue après affichage
+	$('body').on('hidden.bs.modal', '.modal', function () {
+    	$(this).removeData('bs.modal');
+    });	
+	
+	
+});
 </script>
-<h2>Page index du site.</h2>
+{/literal}
 
-<h3>Personnalisation</h3>
-<ul style='margin:30px'>
-	<li>Cette page est générée à partir du module index et de son template index.tpl
-	<li>Les entrées du menu principal sont configurées dans le fichier conf/Menus.ini.php</li>
-	<li>L'apparence générale du site peut être modifiée dans le fichier templates/main.tpl</li>
-	<li>Bootstrap 3 est utilisé pour le style, cf dossier styles</li>
-	<li>L'apparence des champs de formulaire est modifiable à partir des templates : templates/champs</li>
-	<li>Pour le reste, voir la <a href="doc">Documentation</a></li>
-</ul>
+<h2>Tous nos conseils </h2>
 
 
-<h3>Exemples de modules</h3>
-<ol style='margin:30px'>
-	<li>affichage d'un simple template</li>
-	<li>affiche et "valide" un formulaire</li>
-	<li>effectue un traitement silencieux et redirige vers la page d'accueil</li>
-	<li>génère du contenu et l'envoie sous forme de fichier</li>
-	<li>exemple ajax/jquery</li>	
-</ol>
+	<table class='table table-striped'>
+		<thead>
+			<th>Titre</th><th>Date de parution</th><th>En savoir plus</th>
+		</thead>
+		<tbody>
+		{foreach $data as $ligne=>$donnees}
+			<tr class='table-striped'>
+				<td>{$donnees.titre_conseil}</td>
+				<td>{$donnees.date_parution}</td>
+				<td>
+					<!--voir le détail-->
+					<a class='glyphicon glyphicon-search' 
+						data-toggle="modal" 
+						data-target="#inclusionModal" 
+						href='?module=index&action=detail&id_tuto={$donnees.id_tuto}&type_conseil={$donnees.type_conseil}&displayModuleInDialog=1'>
+					</a> 			
+				</td>
+			</tr>
+		{foreachelse}	
+			<tr><td colspan='3'>Aucune donnée</td></tr>
+		{/foreach}
+		</tbody>
+	</table>
+	
+<h2>Toutes les demandes d'aide</h2>
+
+
+	<table class='table table-striped'>
+		<thead>
+			<th>Titre</th><th>Date de parution</th><th>Actions</th>
+		</thead>
+		<tbody>
+		{foreach $data as $ligne=>$donnees}
+			<tr class='table-striped'>
+				<td>{$donnees.titre_conseil}</td>
+				<td>{$donnees.date_parution}</td>
+				<td>
+					<!--voir le détail-->
+					<a class='glyphicon glyphicon-search' 
+						data-toggle="modal" 
+						data-target="#inclusionModal" 
+						href='?module=index&action=detail&id_tuto={$donnees.id_tuto}&type_conseil={$donnees.type_conseil}&displayModuleInDialog=1'>
+					</a> 			
+				</td>
+			</tr>
+		{foreachelse}	
+			<tr><td colspan='3'>Aucune donnée</td></tr>
+		{/foreach}
+		</tbody>
+	</table>
+	
+	
+	
+	
+<!-- boite de dialogue confirmation -->
+<!-- exemple du site getbootstrap -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Confirmation</h4>
+      </div>
+      <div class="modal-body">
+        Êtes vous sûr de vouloir supprimer l'enregistrement ? 
+      </div>
+      <div class="modal-footer">
+        <a href="#" class="btn btn-default" data-dismiss="modal">Fermer</a>
+        <a href="#" class="btn btn-primary" id='go'>Confirmer</a>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+	
+	
+<!-- boite de dialogue inclusion-->
+<div class="modal fade" id="inclusionModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+	    Contenu vide remplacé par le module...
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div>
