@@ -31,22 +31,24 @@ $(function() {
 		<a href='?module=CRUDConseils&action=ajouter' class='btn btn-success glyphicon glyphicon-plus'> Ajouter</a>
 	</p>
 -->
+<h3>Liste</h3>
 	<table class='table table-striped'>
 		<thead>
-			<th>Titre de l'aide</th><th>Demandeur</th><th>Email</th><th>Actions</th>
+			<th>Titre de l'aide</th><th>Demandeur</th><th>Actions</th>
 		</thead>
 		<tbody>
 		{foreach $data as $ligne=>$donnees}
+		{$user_temp=UserManager::chercherParID($donnees.id_user)}
+		{$login=$user_temp->login}
 			<tr class='table-striped'>
 				<td>{$donnees.titre_aide}</td>
-				<td>{$donnees.nom_demandeur} {$donnees.prenom_demandeur}</td>
-				<td>{$donnees.email}</td>
+				<td>{$login}</td>
 				<td>
 					<!--voir le détail-->
 					<a class='glyphicon glyphicon-search' 
 						data-toggle="modal" 
 						data-target="#inclusionModal" 
-						href='?module=CRUDAides&action=detail&id_demande_daide={$donnees.id_demande_daide}&num_fixe={$donnees.num_fixe}&num_mobile={$donnees.num_mobile}&displayModuleInDialog=1'>
+						href='?module=CRUDAides&action=detail&id_demande_daide={$donnees.id_demande_daide}&displayModuleInDialog=1'>
 					</a> 			
 				</td>
 			</tr>

@@ -16,22 +16,13 @@ class DemandeAide extends Module{
 			$f->add_header("Faire une demande d'aide");
 		
 			$f->add_text("titre","titre","Titre")->set_required();	
-			$f->add_select("choixAide","choixAide","Type d'aide",$TypeAide)->set_required();			
-			$f->add_text("nom","nom","Nom")->set_required();	
-			$f->add_text("prenom","prenom","Prenom")->set_required();			
-			$f->add_text("numFixe","numFixe","N° de votre téléphone fixe")->set_required();	
-			$f->add_text("numPortable","numPortable","N° de votre téléphone mobile")->set_required();		
-			$f->add_text("mail", "mail", "Mail")->set_required();			
+			$f->add_select("choixAide","choixAide","Type d'aide",$TypeAide)->set_required();		
 			$f->add_textarea("contenu","contenu","Contenu")->set_required();				
 	
 
 		//règles de validation automatiques	
 		$f->titre->set_validation("max-length:128"); 
-		$f->nom->set_validation("max-length:64");
-		$f->prenom->set_validation("max-length:64");  	
-		$f->numFixe->set_validation("max-length:11" | "min-length:11"); 
-		$f->numPortable->set_validation("max-length:11" | "min-length:11");
-		$f->mail->set_validation("max-length:128");
+		
 
 
 		$f->add_submit("Valider","bntval")->set_value('Valider');		
@@ -66,37 +57,13 @@ class DemandeAide extends Module{
 			$form->titre->set_error(true);
 			$form->titre->set_error_message("champ vide !");
 		}
-		elseif($this->requete->nom == ''){
-			$valide=false;
-			$form->nom->set_error(true);
-			$form->nom->set_error_message("champ vide !");
-		}
-		elseif($this->requete->prenom == ''){
-			$valide=false;
-			$form->prenom->set_error(true);
-			$form->prenom->set_error_message("champ vide !");
-		}
-		elseif($this->requete->numFixe == ''){
-			$valide=false;
-			$form->numFixe->set_error(true);
-			$form->numFixe->set_error_message("champ vide !");
-		}
-		elseif($this->requete->numPortable == ''){
-			$valide=false;
-			$form->numPortable->set_error(true);
-			$form->numPortable->set_error_message("champ vide !");
-		}
-		elseif($this->requete->mail == ''){
-			$valide=false;
-			$form->mail->set_error(true);
-			$form->mail->set_error_message("champ vide !");
-		}
 		elseif($this->requete->contenu == ''){
 			$valide=false;
 			$form->contenu->set_error(true);
 			$form->contenu->set_error_message("champ vide !");
 		}
 
+		
 		
 		//si un des tests a échoué
 		if( $valide==false ){	
@@ -114,11 +81,7 @@ class DemandeAide extends Module{
 			//création d'une instance de ApportAide
 			$m=new DemandeDAide($_POST["titre"],
 						$_POST["contenu"],
-						$_POST["nom"],
-						$_POST["prenom"],
-						$_POST["numFixe"],
-						$_POST["numPortable"],
-						$_POST["mail"],
+						$this->session->user->id,
 						$_POST["choixAide"]
 						);
 

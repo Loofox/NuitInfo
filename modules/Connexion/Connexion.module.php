@@ -22,11 +22,25 @@ class Connexion extends Module{
 			$this->site->ajouter_message("Vous êtes connecté en tant que ".$a->login);
 			}
 			else{
-			$this->site->ajouter_message("Mot de passe incorrects.",ALERTE);}
+			$this->site->ajouter_message("Identifiants incorrects.",ALERTE);}
 			
-		}else{
-		$this->site->ajouter_message("Identifiants incorrects.",ALERTE);
-		}
+		}elseif(UserManager::chercherParLogin($login)){
+			$a=new User();
+			$a=UserManager::chercherParLogin($login);
+			$a->login = $login;
+			
+			if($a->pass == $pass)
+			{
+			$this->session->ouvrir($a);
+	
+			//passer des infos au template du bloc de login
+			$this->tpl->assign('login',$a->login);
+			$this->site->ajouter_message("Vous êtes connecté en tant que ".$a->login);
+			}
+			else{
+			$this->site->ajouter_message("Identifiants incorrects.",ALERTE);
+			}
+		}else{$this->site->ajouter_message("Identifiants incorrects.",ALERTE);}
 		
 		$this->site->redirect("index");
 		

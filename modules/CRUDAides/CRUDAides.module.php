@@ -16,24 +16,20 @@ class CRUDAides extends Module{
 		$id_demande_daide = $this->req->id_demande_daide;
 		$titre_aide = $this->req->titre_aide;
 		$contenu_aide = $this->req->contenu_aide;
-		$nom_demandeur = $this->req->nom_demandeur;
-		$prenom_demandeur = $this->req->prenom_demandeur;
-		$num_fixe = $this->req->num_fixe;
-		$num_mobile = $this->req->num_mobile;
-		$email = $this->req->email;
+		$id_user=$this->session->user->id;
 		$id_type_aide = $this->req->id_type_aide;
 		
 		$aide = new CRUDAide();
 		$aide = CRUDAideManager::Afficher_detail_aide($id_demande_daide);
-
+		$user_temp=UserManager::chercherParID($id_user);
+		
+		$login=$user_temp->login;
+		$this->site->ajouter_message(" poule ".$user_temp->login);
+		
 		$this->tpl->assign("id_demande_daide",$id_demande_daire);	
 		$this->tpl->assign("titre_aide",$conseil->titre_aide); 
 		$this->tpl->assign("contenu_aide",$aide->contenu_aide);
-		$this->tpl->assign("nom_demandeur",$nom_demandeur);
-		$this->tpl->assign("prenom_demandeur",$prenom_demandeur);
-		$this->tpl->assign("num_fixe",$num_fixe);
-		$this->tpl->assign("num_mobile",$num_mobile);
-		$this->tpl->assign("email",$email);
+		$this->tpl->assign("login_user",$login);
 		$this->tpl->assign("id_type_aide",$id_type_aide);
 	}
 
