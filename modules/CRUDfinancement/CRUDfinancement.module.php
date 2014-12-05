@@ -9,9 +9,6 @@ class CRUDfinancement extends Module{
 		
 		$this->tpl->assign('data',$data);
 
-		$add = $_SERVER['REMOTE_ADDR'];
-		echo $add;
-
 	}
 	
 	public function action_modifier(){
@@ -71,11 +68,23 @@ class CRUDfinancement extends Module{
 		$nb_vote = $this->req->nb_vote;
 
 		$nb_vote++;
-		FinancementManager::vote($id_financement, $nb_vote);
 
-		$this->site->ajouter_message('Votre vote a bien été pris en comtpe.');
+		$add = $_SERVER['REMOTE_ADDR'];
+		$resultat = IPManager::chercherIP($add);
 
-		$this->site->redirect('CRUDfinancement');
+		if($resultat == true)
+		{
+			$this->site->ajouter_message('Vous avez déjà voté ce mois-ci.');
+			$this->site->redirect('CRUDfinancement');
+		}
+		else
+		{
+			$nb_vote++;
+			FinancementManager::vote($id_financement, $nb_vote);
+			IPManager::ajouterIP($add);
+			$this->site->ajouter_message('Votre vote a bien été pris en comtpe.');
+			$this->site->redirect('CRUDfinancement');
+		}
 
 	}
 	
