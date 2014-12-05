@@ -20,6 +20,7 @@ class AdminManager{
 			$admin->mail=$a[3];										
 			return $admin;
 		}
+		
 
 }
 

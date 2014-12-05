@@ -3,10 +3,6 @@ class Connexion extends Module{
 			
 
 	public function action_login(){
-
-
-		
-		
 		//les champs de formulaire sont Login et Pass, cf. Blocs/Login.bloc.tpl
 		$login = $this->req->Login;
 		$pass  = $this->req->Pass;
