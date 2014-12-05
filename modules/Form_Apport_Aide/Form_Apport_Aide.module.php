@@ -141,14 +141,14 @@ class Form_Apport_Aide extends Module{
 
 
 	}
+	public function action_lister(){
+		$this->set_title("Liste des aides");
 
-	public static function lister(){
-		$res = DB::get_instance()->prepare("SELECT * FROM apport_aide");
-		$res ->execute(array());
-
-		$m = $res->fetchAll(PDO::FETCH_ASSOC);
-		return $m;
+		$data=array();
+		$data=AjoutAideManager::lister();
+		$this->tpl->assign('data',$data);
 	}
+	
 
 }
 ?>
