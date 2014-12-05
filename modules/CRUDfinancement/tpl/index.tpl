@@ -27,13 +27,11 @@ $(function() {
 {/literal}
 
 <h2>liste des produits et actions</h2>
-	<p class="text-right">
-		<a href='?module=CRUDfinancement&action=ajouter' class='btn btn-success glyphicon glyphicon-plus'> Ajouter</a>
-	</p>
+
 <h3>Liste</h3>
 	<table class='table table-striped'>
 		<thead>
-			<th>Numéro de demande</th><th>nb_vote</th><th>contenu</th>
+			<th>Numéro de demande</th><th>nb_vote</th><th>contenu</th><th>Voter</th>
 		</thead>
 		<tbody>
 		{foreach $data as $ligne=>$donnees}
@@ -41,7 +39,9 @@ $(function() {
 				<td>{$donnees->id_financement}</td>
 				<td>{$donnees->nb_vote}</td>
 				<td>{$donnees->contenu}</td>
-				
+				<td>
+					<a class='glyphicon glyphicon-plus' href='?module=CRUDFinancement&action=vote&id={$donnees->id_financement}&nb_vote={$donnees->nb_vote}&displayModuleInDialog=1'></a> 
+				</td>			
 			</tr>
 		{foreachelse}	
 			<tr><td colspan='3'>Aucune donnée</td></tr>
