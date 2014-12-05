@@ -6,6 +6,9 @@ class CRUDfinancement extends Module{
 		$this->set_title("Liste");
 
 		$data=FinancementManager::listefinancement();
+
+		if($data == false)
+			$data = null;
 		
 		$this->tpl->assign('data',$data);
 

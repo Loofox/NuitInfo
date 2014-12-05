@@ -31,7 +31,6 @@ $(function() {
 		<a href='?module=CRUDConseils&action=ajouter' class='btn btn-success glyphicon glyphicon-plus'> Ajouter</a>
 	</p>
 -->
-<h3>Liste</h3>
 	<table class='table table-striped'>
 		<thead>
 			<th>Titre de l'aide</th><th>Demandeur</th><th>Email</th><th>Actions</th>
