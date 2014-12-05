@@ -41,12 +41,16 @@ $(function() {
 				<td>{$donnees.titre_conseil}</td>
 				<td>{$donnees.date_parution}</td>
 				<td>
+					
 					<!--voir le détail-->
 					<a class='glyphicon glyphicon-search' 
 						data-toggle="modal" 
 						data-target="#inclusionModal" 
 						href='?module=CRUDConseils&action=detail&id_tuto={$donnees.id_tuto}&type_conseil={$donnees.type_conseil}&displayModuleInDialog=1'>
-					</a> 			
+					</a>
+					<!--supprimer-->
+					<a class='glyphicon glyphicon-remove'
+						href='?module=CRUDConseils&action=supprimer&id={$donnees.id_tuto}'></a>
 				</td>
 			</tr>
 		{foreachelse}	
@@ -70,11 +74,11 @@ $(function() {
         <h4 class="modal-title" id="myModalLabel">Confirmation</h4>
       </div>
       <div class="modal-body">
-        Êtes vous sûr de vouloir supprimer l'enregistrement ? 
+        Êtes vous sûr de vouloir supprimer ce conseil ?
       </div>
       <div class="modal-footer">
         <a href="#" class="btn btn-default" data-dismiss="modal">Fermer</a>
-        <a href="#" class="btn btn-primary" id='go'>Confirmer</a>
+        <a href="?module=CRUDConseils&action=supprimer&id={$donnees.id_tuto}" class="btn btn-primary" id='go'>Confirmer</a>
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->

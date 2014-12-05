@@ -4,8 +4,11 @@ class CRUDfinancement extends Module{
 	public function action_index(){
 
 		$this->set_title("Liste");
-		$data=array();
+
 		$data=FinancementManager::listefinancement();
+
+		if($data == false)
+			$data = null;
 		
 		$this->tpl->assign('data',$data);
 
@@ -62,6 +65,32 @@ class CRUDfinancement extends Module{
 	}
 
 	
+	public function action_vote($id_financement){
+
+		$id_financement = $this->req->id;
+		$nb_vote = $this->req->nb_vote;
+
+		$nb_vote++;
+
+		$add = $_SERVER['REMOTE_ADDR'];
+		$resultat = IPManager::chercherIP($add);
+
+		if($resultat == true)
+		{
+			$this->site->ajouter_message('Vous avez déjà voté ce mois-ci.');
+			$this->site->redirect('CRUDfinancement');
+		}
+		else
+		{
+			$nb_vote++;
+			FinancementManager::vote($id_financement, $nb_vote);
+			IPManager::ajouterIP($add);
+			$this->site->ajouter_message('Votre vote a bien été pris en comtpe.');
+			$this->site->redirect('CRUDfinancement');
+		}
+
+	}
 	
+
 }	
 ?>

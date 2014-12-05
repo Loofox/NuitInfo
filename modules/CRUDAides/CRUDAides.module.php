@@ -1,39 +1,36 @@
 <?php
-<<<<<<< HEAD
-//require(dirname(__FILE__).'\..\..\pdf\fpdf.php');  // pour pouvoir utiliser la librairie fpdf dans les modules qui exdends THE modul
-
-class Index extends Module{
-=======
-class index extends Module{
->>>>>>> 16f32ce6d1ecbc69bf53bc72d6950f75a28ed10c
+class CRUDAides extends Module{
 
 	public function action_index(){
 
-		$this->set_title("Liste des conseils");
+		$this->set_title("Liste des aides");
 
 		$data=array();
-		$data=CRUDConseilManager::lister();
+		$data=CRUDAideManager::lister();
 		$this->tpl->assign('data',$data);
-
 	}
 
 	public function action_detail(){
-		$this->set_title("Détails");	
+		$this->set_title("Détail");	
 
-		$id_tuto = $this->req->id_tuto;
-		$titre_conseil = $this->req->titre_conseil;
-		$contenu = $this->req->contenu;
-		$date_parution = $this->req->date_parution;
-		$type_conseil = $this->req->type_conseil;
+		$id_demande_daide = $this->req->id_demande_daide;
+		$titre_aide = $this->req->titre_aide;
+		$contenu_aide = $this->req->contenu_aide;
+		$id_user=$this->session->user->id;
+		$id_type_aide = $this->req->id_type_aide;
 		
-		$conseil = new CRUDConseil();
-		$conseil = CRUDConseilManager::Afficher_detail_conseil($id_tuto);
-
-		$this->tpl->assign("id_tuto",$id_tuto);	
-		$this->tpl->assign("titre_conseil",$conseil->titre_conseil); 
-		$this->tpl->assign("contenu",$conseil->contenu);
-		$this->tpl->assign("date_parution",$date_parution);
-		$this->tpl->assign("type_conseil",$type_conseil);
+		$aide = new CRUDAide();
+		$aide = CRUDAideManager::Afficher_detail_aide($id_demande_daide);
+		$user_temp=UserManager::chercherParID($id_user);
+		
+		$login=$user_temp->login;
+		$this->site->ajouter_message(" poule ".$user_temp->login);
+		
+		$this->tpl->assign("id_demande_daide",$id_demande_daire);	
+		$this->tpl->assign("titre_aide",$conseil->titre_aide); 
+		$this->tpl->assign("contenu_aide",$aide->contenu_aide);
+		$this->tpl->assign("login_user",$login);
+		$this->tpl->assign("id_type_aide",$id_type_aide);
 	}
 
 /*	public function action_modifier(){

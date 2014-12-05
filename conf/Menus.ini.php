@@ -1,12 +1,9 @@
 <?php
-$menus['Crud conseils']="?module=CRUDConseils";
-$menus['Exemples']=array(
-	'SimpleTPL'=>"?module=SimpleTemplate",
-	'Formulaire'=>"?module=Formulaire",
-	'C.R.U.D'=>"?module=CRUD",	
-	'Redirect'=>"?module=Redirect",
-	'Download'=>"?module=DownloadFile",
-	'Ajax'=>"?module=Ajax"
+$menus['Formulaires']=array(
+	'Demander de l\'aide'=>"?module=DemandeAide",
+	'Proposer de l\'aide'=>"?module=Form_Apport_Aide"
 	);
-$menus['Test']="?module=TestMembre";
+$menus["Les demandes d'aides"]="?module=CRUDAides";
+$menus["Les propositions d'aides"]="?module=CRUDAides";
+$menus["Voter !"]="?module=CRUDFinancement";
 ?>

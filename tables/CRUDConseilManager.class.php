@@ -3,7 +3,7 @@
 class CRUDConseilManager{
 
 	public static function lister(){
-		$res = DB::get_instance()->prepare("SELECT * FROM conseil");
+		$res = DB::get_instance()->prepare("SELECT * FROM conseil ORDER BY date_parution DESC");
 		$res ->execute(array());
 
 		$m = $res->fetchAll(PDO::FETCH_ASSOC);
@@ -27,6 +27,13 @@ class CRUDConseilManager{
 
 		return $conseil;
 		}
+
+	public static function supprimer($id_tuto)
+	{
+		$sql = "DELETE FROM conseil WHERE id_tuto=?";
+		$res = DB::get_instance()->prepare($sql);
+		$res->execute(array($id_tuto));
+	}
 }
 
 ?>

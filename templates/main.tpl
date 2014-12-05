@@ -16,12 +16,7 @@
 	{include file="navigation.tpl"}
 
     <div class="container">
-		<ol class="breadcrumb">
-			<li><a href="?module">Home</a></li>
-			<li><a href="?module={$module}">{$module}</a></li>
-			<li class="active">{$titre}</li>
-		</ol>
-
+		
 		{if $messages}
 			<div class="bs-callout bs-callout-primary">
 				{$messages}
