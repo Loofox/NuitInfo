@@ -1,6 +1,6 @@
 <?PHP
  
-class DemandeDAide{
+class DemandeAide{
          
 		public $titre_aide;
         public $contenu_aide;

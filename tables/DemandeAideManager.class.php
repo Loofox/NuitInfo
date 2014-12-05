@@ -43,4 +43,37 @@ class DemandeAideManager{
 			$titre->id_type_aide=$m[9];
 			return $titre;
 		}
+	public static function chercherPdf(){
+		$sql = "SELECT * FROM demande_daide";
+		$res = DB::get_instance()->prepare($sql);
+		$res -> execute();
+
+		//gérer les erreurs éventuelles
+		if($res->rowCount()==0){
+			return false;
+		}
+
+
+		$m = array();
+		$i=0;
+		
+		while( $ligne =  $res->fetch(PDO::FETCH_ASSOC)){
+				$da = new DemandeAide();
+
+				$da->id_demande_daide	=$ligne["id_demande_daide"];
+				$da->titre_aide			=$ligne["titre_aide"];
+				$da->contenu_aide		=$ligne["contenu_aide"];
+				$da->nom_demandeur		=$ligne["nom_demandeur"];
+				$da->prenom_demandeur	=$ligne["prenom_demandeur"];
+				$da->num_fixe 			=$ligne["num_fixe"];
+				$da->num_mobile			=$ligne["num_mobile"];
+				$da->email 				=$ligne["email"];
+				$da->id_type_aide		=$ligne["id_type_aide"];
+
+				$m[$i]=$da;
+				$i=$i+1;
+			}
+			
+		return $m;
+	}	
 }

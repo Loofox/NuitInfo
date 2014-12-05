@@ -1,4 +1,6 @@
 <?php
+//require(dirname(__FILE__).'\..\..\pdf\fpdf.php');  // pour pouvoir utiliser la librairie fpdf dans les modules qui exdends THE modul
+
 class Index extends Module{
 
 	public function action_index(){

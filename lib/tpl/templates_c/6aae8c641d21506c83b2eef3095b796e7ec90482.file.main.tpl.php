@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.1, created on 2014-12-04 21:06:39
+<?php /* Smarty version Smarty-3.1.1, created on 2014-12-05 03:42:49
          compiled from "templates\main.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:231135480becfcd0e60-20734777%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '6aae8c641d21506c83b2eef3095b796e7ec90482' => 
     array (
       0 => 'templates\\main.tpl',
-      1 => 1417722048,
+      1 => 1417745543,
       2 => 'file',
     ),
   ),
@@ -15,6 +15,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.1',
+  'unifunc' => 'content_5480becfd9ec9',
   'variables' => 
   array (
     'titre' => 0,
@@ -25,8 +27,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'erreurs' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.1',
-  'unifunc' => 'content_5480becfd9ec9',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_5480becfd9ec9')) {function content_5480becfd9ec9($_smarty_tpl) {?><!-- start template-->
 <html>
@@ -59,7 +59,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 
 		<?php if ($_smarty_tpl->tpl_vars['messages']->value){?>
 			<div class="bs-callout bs-callout-primary">
-				<h4>Zone de messages transmis par <code>Site::ajouter_message():</code></h4>
 				<?php echo $_smarty_tpl->tpl_vars['messages']->value;?>
 
 			</div>
