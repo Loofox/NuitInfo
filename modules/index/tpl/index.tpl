@@ -25,6 +25,11 @@ $(function() {
 });
 </script>
 {/literal}
+<center><h1> Bienvenue sur le site de l'organisation Santa.Close().</h1><br /></center>
+
+<h4> Nous sommes une organisation qui met en relation des personnes qui ont besoin d'aide avec des personnes ou des organisations qui veulent aider les autres.</h4>
+<br/>
+<h4>Si vous avez besoin d'aide, peu importe sa nature, n'hésitez pas à cliquer sur l'onglet "Demander de l'aide" dans la barre de navigation.A l'inverse, si vous avez envie d'aider les autres par l'apport de fonds, de connaissances, d'informations ou autres, cliquez sur l'onglet "Proposer de l'aide".</h4>
 
 <h2>Tous nos conseils </h2>
 
@@ -53,33 +58,7 @@ $(function() {
 		</tbody>
 	</table>
 	
-<h2>Toutes les demandes d'aide</h2>
 
-
-	<table class='table table-striped'>
-		<thead>
-			<th>Titre</th><th>Date de parution</th><th>Actions</th>
-		</thead>
-		<tbody>
-		{foreach $data as $ligne=>$donnees}
-			<tr class='table-striped'>
-				<td>{$donnees.titre_conseil}</td>
-				<td>{$donnees.date_parution}</td>
-				<td>
-					<!--voir le détail-->
-					<a class='glyphicon glyphicon-search' 
-						data-toggle="modal" 
-						data-target="#inclusionModal" 
-						href='?module=index&action=detail&id_tuto={$donnees.id_tuto}&type_conseil={$donnees.type_conseil}&displayModuleInDialog=1'>
-					</a> 			
-				</td>
-			</tr>
-		{foreachelse}	
-			<tr><td colspan='3'>Aucune donnée</td></tr>
-		{/foreach}
-		</tbody>
-	</table>
-	
 	
 	
 	

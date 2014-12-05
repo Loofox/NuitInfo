@@ -27,9 +27,10 @@ $(function() {
 {/literal}
 
 <h2>Liste des aides</h2>
-	<p class="text-right">
+	<!--<p class="text-right">
 		<a href='?module=CRUDConseils&action=ajouter' class='btn btn-success glyphicon glyphicon-plus'> Ajouter</a>
 	</p>
+-->
 <h3>Liste</h3>
 	<table class='table table-striped'>
 		<thead>

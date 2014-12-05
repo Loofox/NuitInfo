@@ -8,8 +8,6 @@ class CRUDAides extends Module{
 		$data=array();
 		$data=CRUDAideManager::lister();
 		$this->tpl->assign('data',$data);
-		var_dump($data);
-
 	}
 
 	public function action_detail(){
