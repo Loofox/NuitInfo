@@ -32,7 +32,6 @@ class Form_Apport_Aide extends Module{
 		$f->numFixe->set_validation("max-length:11" | "min-length:11"); 
 		$f->numPortable->set_validation("max-length:11" | "min-length:11");
 		$f->mail->set_validation("max-length:128");
-print_r($TypeAide);
 
 		$f->add_submit("Valider","bntval")->set_value('Valider');		
 

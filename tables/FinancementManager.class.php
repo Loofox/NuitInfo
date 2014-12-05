@@ -46,4 +46,17 @@ class FinancementManager{
 			
 		return $m;
     }
+
+    	public static function vote($id_financement, $nb_vote){
+
+			$sql="UPDATE financement SET nb_vote = ? WHERE id_financement = ?";
+			$res=DB::get_instance()->prepare($sql);
+			$res->execute(array($nb_vote, $id_financement));
+			//gérer les erreurs éventuelles
+			if($res->rowCount()==0){
+				return false;
+
+		}
+	}
+
 }
