@@ -27,9 +27,11 @@ $(function() {
 {/literal}
 
 <h2>liste des produits et actions</h2>
+{if isset($login) }	
 	<p class="text-right">
 		<a href='?module=CRUD&action=ajouter' class='btn btn-success glyphicon glyphicon-plus'> Ajouter</a>
 	</p>
+{/if}
 <h3>Liste</h3>
 	<table class='table table-striped'>
 		<thead>

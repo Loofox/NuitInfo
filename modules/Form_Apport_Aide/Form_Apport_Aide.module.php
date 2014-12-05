@@ -142,5 +142,13 @@ class Form_Apport_Aide extends Module{
 
 	}
 
+	public static function lister(){
+		$res = DB::get_instance()->prepare("SELECT * FROM apport_aide");
+		$res ->execute(array());
+
+		$m = $res->fetchAll(PDO::FETCH_ASSOC);
+		return $m;
+	}
+
 }
 ?>

@@ -85,7 +85,7 @@ $(function() {
 	
 	
 <!-- boite de dialogue inclusion-->
-<div class="modal fade" id="inclusionModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade" id="inclusionModal" tabindex="2" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
 	    Contenu vide remplacé par le module...

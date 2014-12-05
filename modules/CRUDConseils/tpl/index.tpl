@@ -27,9 +27,11 @@ $(function() {
 {/literal}
 
 <h2>Liste des conseils</h2>
+{if isset($login) }	
 	<p class="text-right">
 		<a href='?module=CRUDConseils&action=ajouter' class='btn btn-success glyphicon glyphicon-plus'> Ajouter</a>
 	</p>
+{/if}
 <h3>Liste</h3>
 	<table class='table table-striped'>
 		<thead>
