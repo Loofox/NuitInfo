@@ -24,12 +24,8 @@ class CRUDAideManager{
 		$aide->id_demande_daide = $m[0];
 		$aide->titre_aide = $m[1];
 		$aide->contenu_aide = $m[2];
-		$aide->nom_demandeur = $m[3];
-		$aide->prenom_demandeur = $m[4];
-		$aide->num_fixe = $m[5];
-		$aide->num_mobile = $m[6];
-		$aide->email = $m[7];
-		$aide->id_type_aide = $m[8];
+		$aide->id_type_aide = $m[3];
+		$aide->id_user=$m[4];
 
 		return $aide;
 	}
