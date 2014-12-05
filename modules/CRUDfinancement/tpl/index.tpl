@@ -26,12 +26,11 @@ $(function() {
 </script>
 {/literal}
 
-<h2>liste des produits et actions</h2>
+<h2>Liste des idées originales de financement</h2>
 
-<h3>Liste</h3>
 	<table class='table table-striped'>
 		<thead>
-			<th>Numéro de demande</th><th>nb_vote</th><th>contenu</th><th>Voter</th>
+			<th>Numéro de la proposition</th><th>nombre de vote</th><th>contenu</th><th>Voter</th>
 		</thead>
 		<tbody>
 		{foreach $data as $ligne=>$donnees}
@@ -44,7 +43,7 @@ $(function() {
 				</td>			
 			</tr>
 		{foreachelse}	
-			<tr><td colspan='3'>Aucune donnée</td></tr>
+			<tr><td colspan='4'>Aucune donnée</td></tr>
 		{/foreach}
 		</tbody>
 	</table>
