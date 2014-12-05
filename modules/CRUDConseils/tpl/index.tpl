@@ -41,6 +41,7 @@ $(function() {
 				<td>{$donnees.titre_conseil}</td>
 				<td>{$donnees.date_parution}</td>
 				<td>
+					
 					<!--voir le détail-->
 					<a class='glyphicon glyphicon-search' 
 						data-toggle="modal" 
