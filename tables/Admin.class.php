@@ -12,7 +12,7 @@ class Admin{
 										$email=NULL
 										)
 			{
-			$this->id_admin			 = $id_admin
+			$this->id_admin			 = $id_admin;
 			$this->mdp      		 = $mdp;
             $this->login   			 = $login;
             $this->email   			 = $email;
