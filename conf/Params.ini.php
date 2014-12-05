@@ -6,6 +6,7 @@ define("DB_PASS","");//""
 define("BASE","humanitaire");
 define("PORT","3306");//3306
 
+
 define('DEBUG',0);
 define('CLASSES',dirname($_SERVER["SCRIPT_FILENAME"])."/tables");
 

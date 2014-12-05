@@ -26,14 +26,14 @@ $(function() {
 </script>
 {/literal}
 
-<h2>liste des produits et actions</h2>
+<h2>Liste des conseils</h2>
 	<p class="text-right">
-		<a href='?module=CRUD&action=ajouter' class='btn btn-success glyphicon glyphicon-plus'> Ajouter</a>
+		<a href='?module=CRUDConseils&action=ajouter' class='btn btn-success glyphicon glyphicon-plus'> Ajouter</a>
 	</p>
 <h3>Liste</h3>
 	<table class='table table-striped'>
 		<thead>
-			<th>Titre du conseil</th><th>Date de parution</th><th>Actions ?</th>
+			<th>Titre du conseil</th><th>Date de parution</th><th>Actions</th>
 		</thead>
 		<tbody>
 		{foreach $data as $ligne=>$donnees}
@@ -45,19 +45,8 @@ $(function() {
 					<a class='glyphicon glyphicon-search' 
 						data-toggle="modal" 
 						data-target="#inclusionModal" 
-						href='?module=CRUD&action=detail&id={$donnees.id}&ref={$donnees.Reference}&displayModuleInDialog=1'>
-					</a> 				
-
-					<!--modifier-->
-					<a class='glyphicon glyphicon-pencil' 
-						data-toggle="modal" 
-						data-target="#inclusionModal"
-						href='?module=CRUD&action=modifier&id={$donnees.id}&ref={$donnees.Reference}&displayModuleInDialog=1'>
-					</a>
-
-					<!--supprimer-->
-					<a class='glyphicon glyphicon-remove' title='{$donnees.Reference}' 
-						href='?module=CRUD&action=supprimer&id={$donnees.id}&ref={$donnees.Reference}'></a>				
+						href='?module=CRUDConseils&action=detail&id_tuto={$donnees.id_tuto}&type_conseil={$donnees.type_conseil}&displayModuleInDialog=1'>
+					</a> 			
 				</td>
 			</tr>
 		{foreachelse}	

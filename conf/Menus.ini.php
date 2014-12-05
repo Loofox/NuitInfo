@@ -1,4 +1,5 @@
 <?php
+$menus['Crud conseils']="?module=CRUDConseil";
 $menus['Exemples']=array(
 	'SimpleTPL'=>"?module=SimpleTemplate",
 	'Formulaire'=>"?module=Formulaire",
