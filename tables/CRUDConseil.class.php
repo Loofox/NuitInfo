@@ -1,7 +1,5 @@
 <?php
-/**
 
-*/
 class CRUDConseil
 {
 	public $id_tuto;

@@ -8,8 +8,6 @@ class CRUDConseils extends Module{
 		$data=array();
 		$data=CRUDConseilManager::lister();
 		$this->tpl->assign('data',$data);
-		var_dump($data);
-
 	}
 
 	public function action_detail(){
@@ -31,6 +29,16 @@ class CRUDConseils extends Module{
 		$this->tpl->assign("type_conseil",$type_conseil);
 	}
 
+	public function action_supprimer(){
+		$this->set_title("Supprimer");
+
+		$id_tuto=$this->req->id_tuto;
+
+		CRUDConseilManager::supprimer($id_tuto);
+
+		$this->site->redirect($module="CRUDConseils",$action="index");		
+	}
+
 /*	public function action_modifier(){
 		$this->set_title("Modifier");
 	
@@ -45,19 +53,7 @@ class CRUDConseils extends Module{
 	
 		
 	}
-	public function action_supprimer(){
-		$this->set_title("Supprimer");
-
-		//recupère l'id et la référence 
-		$id = $this->req->id;
-		$ref= $this->req->ref;
-		
-		//passe ces informations dans le template
-		
-		$this->tpl->assign("id",$id);
-		$this->tpl->assign("reference",$ref);		
-		
-	}
+	
 	
 
 	public function action_ajouter(){

@@ -1,7 +1,7 @@
 {* affiche un formulaire de connexion ou les informations de l'utilisateur courant *}
 {if isset($login) }	
 <ul class="nav navbar-nav navbar-right">
-	<li><a href='?module=Connexion&action=deconnect'>{$login} | Se déconnecter</a></li>
+	<li><a href='?module=portailAdmin'>{$login}</a><a href='?module=Connexion&action=deconnect'>| Se déconnecter</a></li>
 </ul>
 
 
