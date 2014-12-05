@@ -31,6 +31,9 @@ $(function() {
 		<a href='?module=CRUDConseils&action=ajouter' class='btn btn-success glyphicon glyphicon-plus'> Ajouter</a>
 	</p>
 -->
+	<p class="text-right">
+		<a href='?module=CreerPdf&action=index' class='btn btn-success glyphicon glyphicon-plus'> Exporter en PDF</a>
+	</p>
 <h3>Liste</h3>
 	<table class='table table-striped'>
 		<thead>
