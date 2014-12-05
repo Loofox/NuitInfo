@@ -141,6 +141,14 @@ class Form_Apport_Aide extends Module{
 
 
 	}
+	public function action_lister(){
+		$this->set_title("Liste des aides");
+
+		$data=array();
+		$data=AjoutAideManager::lister();
+		$this->tpl->assign('data',$data);
+	}
+	
 
 }
 ?>

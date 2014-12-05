@@ -39,7 +39,7 @@ class UserManager{
 				return false;
 			}
 			$m= $res->fetch();			
-			$membre=new Membre();
+			$membre=new User();
 			$membre->id=$m[0];
 			$membre->pass=$m[1];
 			$membre->login= $m[2];

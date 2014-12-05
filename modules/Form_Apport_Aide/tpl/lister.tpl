@@ -25,30 +25,28 @@ $(function() {
 });
 </script>
 {/literal}
-<center><h1> Bienvenue sur le site de l'organisation Santa.Close().</h1><br /></center>
 
-<h4> Nous sommes une organisation qui met en relation des personnes qui ont besoin d'aide avec des personnes ou des organisations qui veulent aider les autres.</h4>
-<br/>
-<h4>Si vous avez besoin d'aide, peu importe sa nature, n'hésitez pas à cliquer sur l'onglet "Demander de l'aide" dans la barre de navigation.A l'inverse, si vous avez envie d'aider les autres par l'apport de fonds, de connaissances, d'informations ou autres, cliquez sur l'onglet "Proposer de l'aide".</h4>
-
-<h2>Tous nos conseils </h2>
-
-
+<h2>Liste des aides</h2>
+	<!--<p class="text-right">
+		<a href='?module=CRUDConseils&action=ajouter' class='btn btn-success glyphicon glyphicon-plus'> Ajouter</a>
+	</p>
+-->
 	<table class='table table-striped'>
 		<thead>
-			<th>Titre</th><th>Date de parution</th><th>En savoir plus</th>
+			<th>Titre de l'aide</th><th>Demandeur</th><th>Email</th><th>Actions</th>
 		</thead>
 		<tbody>
 		{foreach $data as $ligne=>$donnees}
 			<tr class='table-striped'>
-				<td>{$donnees.titre_conseil}</td>
-				<td>{$donnees.date_parution}</td>
+				<td>{$donnees.titre_aide}</td>
+				<td>{$donnees.nom_demandeur} {$donnees.prenom_demandeur}</td>
+				<td>{$donnees.email}</td>
 				<td>
 					<!--voir le détail-->
 					<a class='glyphicon glyphicon-search' 
 						data-toggle="modal" 
 						data-target="#inclusionModal" 
-						href='?module=index&action=detail&id_tuto={$donnees.id_tuto}&type_conseil={$donnees.type_conseil}&displayModuleInDialog=1'>
+						href='?module=CRUDAides&action=detail&id_demande_daide={$donnees.id_demande_daide}&num_fixe={$donnees.num_fixe}&num_mobile={$donnees.num_mobile}&displayModuleInDialog=1'>
 					</a> 			
 				</td>
 			</tr>
@@ -58,7 +56,8 @@ $(function() {
 		</tbody>
 	</table>
 	
-
+	
+	
 	
 	
 	
@@ -85,7 +84,7 @@ $(function() {
 	
 	
 <!-- boite de dialogue inclusion-->
-<div class="modal fade" id="inclusionModal" tabindex="2" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade" id="inclusionModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
 	    Contenu vide remplacé par le module...
