@@ -7,9 +7,9 @@ class Financement{
         public $contenu;
 
          
-			public function __construct($id_financement,
-										$nb_vote,
-										$id_type_aide)
+			public function __construct($nb_vote=NULL,
+										$contenu=NULL,
+										$id_financement=NULL)
 			{
 			$this->id_financement      	 = $id_financement;
             $this->nb_vote   			 = $nb_vote;

@@ -18,4 +18,32 @@ class FinancementManager{
 			$out->contenu= $m[2];
 			return $out;
 		}
+		
+	public static function listefinancement()
+    {
+    	$sql = "SELECT * FROM financement";
+		$res = DB::get_instance()->prepare($sql);
+		$res -> execute();
+
+		//gérer les erreurs éventuelles
+		if($res->rowCount()==0){
+			return false;
+		}
+
+
+		$m = array();
+		$i=0;
+		
+		while( $ligne =  $res->fetch(PDO::FETCH_ASSOC)){
+				$da = new Financement();
+				$da->id_financement=$ligne["id_financement"];
+				$da->nb_vote=$ligne["nb_vote"];
+				$da->contenu=$ligne["contenu"];
+				
+				$m[$i]=$da;
+				$i=$i+1;
+			}
+			
+		return $m;
+    }
 }
